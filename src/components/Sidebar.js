@@ -10,12 +10,16 @@ import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import { ExpandMoreOutlined } from "@material-ui/icons";
 
+import { useStateValue } from "../StateProvider";
+
 function Sidebar() {
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="sidebar">
       <SidebarRow
-        src="https://avatars.githubusercontent.com/u/32111854?v=4"
-        title="Arsene Indamutsa"
+        src={user.photoURL}
+        title={user.displayName}
       />
       <SidebarRow
         Icon={LocalHospitalIcon}
